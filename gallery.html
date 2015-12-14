@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>erikdel.com - my gallery</title>
+<link href="gallery.css" rel="stylesheet" type="text/css" />
+</meta>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.4"></script>
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.4" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 20px #222;
+		}
+	</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="content">
+    <p><a href="index.html"><img src="images/home32.png" title="back to index" width="32" height="32" alt="back to index" /></a></p>
+    	<p>
+    	<ul>
+            <li><a class="fancybox" rel="gallery" title="1st Shot" href="images/gallery/a_01_1stshot1755mm.jpg"><img src="images/gallery/b_1stshot1755mm_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Ferrari F430" href="images/gallery/a_02_f430nyautoshow14Apr07.jpg"><img src="images/gallery/b_f430nyautoshow14Apr07_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Candle Light" href="images/gallery/a_03_candlelight01.jpg"><img src="images/gallery/b_candlelight01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Arc De Triomphe, Barcelona" href="images/gallery/a_04_arcdetriomphebarcelona01.jpg"><img src="images/gallery/b_arcdetriomphebarcelona01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Cherry Blossoms #1" href="images/gallery/a_05_cherryblossoms01.jpg"><img src="images/gallery/b_cherryblossoms01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Washington Monument" href="images/gallery/a_06_monument01.jpg"><img src="images/gallery/b_monument01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Flora #1" href="images/gallery/a_07_flora01.jpg"><img src="images/gallery/b_flora01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="La Rambla, Barcelona" href="images/gallery/a_08_laramblanighttime01.jpg"><img src="images/gallery/b_laramblanighttime01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="3 lights" href="images/gallery/a_09_4x3lights01.jpg"><img src="images/gallery/b_4x3lights01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Flora #2" href="images/gallery/a_10_flora02.jpg"><img src="images/gallery/b_flora02_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Barcelona Logo" href="images/gallery/a_11_barcelonalogo01.jpg"><img src="images/gallery/b_barcelonalogo01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Buster" href="images/gallery/a_12_buster01.jpg"><img src="images/gallery/b_buster01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Flora #3" href="images/gallery/a_13_flora03.jpg"><img src="images/gallery/b_flora03_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Thomas Circle" href="images/gallery/a_14_thomascirhdr01.jpg"><img src="images/gallery/b_thomascirhdr01_sm.jpg" width="72" height="48" /></a>
+            <li><a class="fancybox" rel="gallery" title="Downtown Annapolis" href="images/gallery/a_15_downtownannapolishdr01.jpg"><img src="images/gallery/b_downtownannapolishdr01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Flora #4" href="images/gallery/a_16_flora04.jpg"><img src="images/gallery/b_flora04_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Water Drop" href="images/gallery/a_17_waterdrop01.jpg"><img src="images/gallery/b_waterdrop01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Flora #5" href="images/gallery/a_18_flora05.jpg"><img src="images/gallery/b_flora05_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Capitol Hill" href="images/gallery/a_19_capitolhill01.jpg"><img src="images/gallery/b_capitolhill01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Edwards Hall" href="images/gallery/a_20_edwardshall01.jpg"><img src="images/gallery/b_edwardshall01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Cherry Blossoms #2" href="images/gallery/a_21_cherryblossoms02.jpg"><img src="images/gallery/b_cherryblossoms02_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Fira De Barcelona" href="images/gallery/a_22_firadebarcelona01.jpg"><img src="images/gallery/b_firadebarcelona01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Buster In Two Ft. of Snow" href="images/gallery/a_23_busterand2ftofsnow01.jpg"><img src="images/gallery/b_busterand2ftofsnow01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Flora #6" href="images/gallery/a_24_flora06.jpg"><img src="images/gallery/b_flora06_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="St. Patrick's Day Parade" href="images/gallery/a_25_stpatricksdayparade01.jpg"><img src="images/gallery/b_stpatricksdayparade01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Tapas Bar, Barcelona" href="images/gallery/a_26_barcelonatapas01.jpg"><img src="images/gallery/b_barcelonatapas01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Brooklyn Bridge" href="images/gallery/a_27_brooklynbridgehdr01.jpg"><img src="images/gallery/b_brooklynbridgehdr01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Book + Filter" href="images/gallery/a_28_bookfilter01.jpg"><img src="images/gallery/b_bookfilter01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Different Perspective" href="images/gallery/a_29_florayellow01.jpg"><img src="images/gallery/b_florayellow01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Jefferson Monument" href="images/gallery/a_30_jeffersonmonument01.jpg"><img src="images/gallery/b_jeffersonmonument01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Mini Parol" href="images/gallery/a_31_miniparol01.jpg"><img src="images/gallery/b_miniparol01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Nikon Logo" href="images/gallery/a_32_nikonlogo01.jpg"><img src="images/gallery/b_nikonlogo01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="3 Red Roses" href="images/gallery/a_33_3redroses01.jpg"><img src="images/gallery/b_3redroses01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Buster in B/W" href="images/gallery/a_34_busterinbw01.jpg"><img src="images/gallery/b_busterinbw01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Lafayette Park" href="images/gallery/a_35_lafayettepark01.jpg"><img src="images/gallery/b_lafayettepark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Blades of Grass" href="images/gallery/a_36_bladesofgrass01.jpg"><img src="images/gallery/b_bladesofgrass01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Plaza Real, Barcelona" href="images/gallery/a_37_plazareal01.jpg"><img src="images/gallery/b_plazareal01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Rideau Canal, Ottawa" href="images/gallery/a_38_rideaucanal01.jpg"><img src="images/gallery/b_rideaucanal01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Atlas at Rockefeller Center" href="images/gallery/a_39_atlasatrockefeller01.jpg"><img src="images/gallery/b_atlasatrockefeller01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Ottawa Parliament" href="images/gallery/a_40_ottawaparliament01.jpg"><img src="images/gallery/b_ottawaparliament01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="National Harbor" href="images/gallery/a_41_nationalharbor01.jpg"><img src="images/gallery/b_nationalharbor01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Tree Bark" href="images/gallery/a_42_treebark01.jpg"><img src="images/gallery/b_treebark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Ferrari 599gtb" href="images/gallery/a_43_ferrari599gtb01.jpg"><img src="images/gallery/b_ferrari599gtb01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="A Crooked String" href="images/gallery/a_44_crookedstring01.jpg"><img src="images/gallery/b_crookedstring01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Buster with Roses" href="images/gallery/a_45_busterwithroses01.jpg"><img src="images/gallery/b_busterwithroses01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Fall 2008" href="images/gallery/a_46_fall2008-01.jpg"><img src="images/gallery/b_fall2008-01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Canada Supreme Court" href="images/gallery/a_47_canadasupremecourt01.jpg"><img src="images/gallery/b_canadasupremecourt01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Aperture #1" href="images/gallery/a_48_aperture01.jpg"><img src="images/gallery/b_aperture01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Inside A Flower" href="images/gallery/a_49_insideaflower01.jpg"><img src="images/gallery/b_insideaflower01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Keychain" href="images/gallery/a_50_keychain01.jpg"><img src="images/gallery/b_keychain01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Yellow Flower" href="images/gallery/a_51_yellowflower01.jpg"><img src="images/gallery/b_yellowflower01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Alexander Hall" href="images/gallery/a_52_alexanderhall01.jpg"><img src="images/gallery/b_alexanderhall01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Trees" href="images/gallery/a_53_trees01.jpg"><img src="images/gallery/b_trees01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Back Porch" href="images/gallery/a_54_backporch01.jpg"><img src="images/gallery/b_backporch01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="My Old Gear" href="images/gallery/a_55_myoldgear01.jpg"><img src="images/gallery/b_myoldgear01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Barcelona Metro" href="images/gallery/a_56_barcelonametro01.jpg"><img src="images/gallery/b_barcelonametro01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Fall Leaf" href="images/gallery/a_57_fallleaf01.jpg"><img src="images/gallery/b_fallleaf01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Christmas Lights NY" href="images/gallery/a_58_xmaslightsny01.jpg"><img src="images/gallery/b_xmaslightsny01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Honda Insight" href="images/gallery/a_59_insight01.jpg"><img src="images/gallery/b_insight01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Aperture #2" href="images/gallery/a_60_aperture02.jpg"><img src="images/gallery/b_aperture02_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Yellow Flower with Ant" href="images/gallery/a_61_yellowflowerwithant01.jpg"><img src="images/gallery/b_yellowflowerwithant01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="My Old Netbook" href="images/gallery/a_62_myoldnetbook01.jpg"><img src="images/gallery/b_myoldnetbook01_sm.jpg" width="72" height="48" /></a></a></li>
+            <li><a class="fancybox" rel="gallery" title="Foggy New York" href="images/gallery/a_63_foggynewyork01.jpg"><img src="images/gallery/b_foggynewyork01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Cherry Blossoms #3" href="images/gallery/a_64_cherryblossoms03.jpg"><img src="images/gallery/b_cherryblossoms03_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="White Tail" href="images/gallery/a_65_whitetail01.jpg"><img src="images/gallery/b_whitetail01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Acura Prototype" href="images/gallery/a_66_acuraprototype01.jpg"><img src="images/gallery/b_acuraprototype01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Pershing Park" href="images/gallery/a_67_pershingpark02.jpg"><img src="images/gallery/b_pershingpark02_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="LED Lights" href="images/gallery/a_68_led01.jpg"><img src="images/gallery/b_led01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Grant's Tomb" href="images/gallery/a_69_grantstomb01.jpg"><img src="images/gallery/b_grantstomb01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Lamp Post" href="images/gallery/a_70_lamppost01.jpg"><img src="images/gallery/b_lamppost01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Tomb of Unknown Soldier" href="images/gallery/a_71_tombofunknownsoldier01.jpg"><img src="images/gallery/b_tombofunknownsoldier01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Old Cameras" href="images/gallery/a_72_oldcameras01.jpg"><img src="images/gallery/b_oldcameras01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Jupiter and Crescent Moon" href="images/gallery/a_73_jupiterandcrescentmoon01.jpg"><img src="images/gallery/b_jupiterandcrescentmoon01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="S2000 Rear View" href="images/gallery/a_74_s2krearview01.jpg"><img src="images/gallery/b_s2krearview01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Fall 2008 #2" href="images/gallery/a_75_fall08-02.jpg"><img src="images/gallery/b_fall08-02_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Canada Veteran's Memorial" href="images/gallery/a_76_canveteransmemorial01.jpg"><img src="images/gallery/b_canveteransmemorial01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Mazda Furai Concept" href="images/gallery/a_77_mazdafuraiconcept01.jpg"><img src="images/gallery/b_mazdafuraiconcept01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Christmas Decor" href="images/gallery/a_78_xmasdecor01.jpg"><img src="images/gallery/b_xmasdecor01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Blue Tailed Lizard" href="images/gallery/a_79_bluetailedlizard01.jpg"><img src="images/gallery/b_bluetailedlizard01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Stonehenge" href="images/gallery/a_80_stonehenge01.jpg"><img src="images/gallery/b_stonehenge01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Theodore Roosevelt Statue" href="images/gallery/a_81_theodoreroosevelt01.jpg"><img src="images/gallery/b_theodoreroosevelt01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Small Car in a Restaurant" href="images/gallery/a_82_smallcarinrestaurant01.jpg"><img src="images/gallery/b_smallcarinrestaurant01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Hackintosh Mini" href="images/gallery/a_83_hackintoshmini01.jpg"><img src="images/gallery/b_hackintoshmini01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="London Eye" href="images/gallery/a_84_londoneye01.jpg"><img src="images/gallery/b_londoneye01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Sagrada Familia" href="images/gallery/a_85_sagradafamilia01.jpg"><img src="images/gallery/b_sagradafamilia01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="A Moth" href="images/gallery/a_86_moth01.jpg"><img src="images/gallery/b_moth01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="I-70 Scenic View" href="images/gallery/a_87_i70scenicview01.jpg"><img src="images/gallery/b_i70scenicview01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Millenium Bridge" href="images/gallery/a_88_millenniumbridge01.jpg"><img src="images/gallery/b_millenniumbridge01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Buster Playing" href="images/gallery/a_89_busterplaying01.jpg"><img src="images/gallery/b_busterplaying01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Porsche 911" href="images/gallery/a_90_porsche911-01.jpg"><img src="images/gallery/b_porsche911-01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Citizen's Bank Park" href="images/gallery/a_91_citizensbankpark01.jpg"><img src="images/gallery/b_citizensbankpark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="English Garden" href="images/gallery/a_92_englishgarden01.jpg"><img src="images/gallery/b_englishgarden01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="U2 Concert" href="images/gallery/a_93_u2concert01.jpg"><img src="images/gallery/b_u2concert01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="St. James Park" href="images/gallery/a_94_stjamespark01.jpg"><img src="images/gallery/b_stjamespark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Theodore Roosevelt Fountain" href="images/gallery/a_95_trfountain01.jpg"><img src="images/gallery/b_trfountain01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Camp Nou Press Box" href="images/gallery/a_96_campnoupressbox01.jpg"><img src="images/gallery/b_campnoupressbox01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="View From Barton House" href="images/gallery/a_97_viewfrombartonhouse01.jpg"><img src="images/gallery/b_viewfrombartonhouse01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Reflections" href="images/gallery/a_98_reflections01.jpg"><img src="images/gallery/b_reflections01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Manila Style Clock" href="images/gallery/a_99_manilastyleclock01.jpg"><img src="images/gallery/b_manilastyleclock01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Tower Bridge" href="images/gallery/a_100_towerbridge01.jpg"><img src="images/gallery/b_towerbridge01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Ceiling Fan" href="images/gallery/a_101_ceilingfan01.jpg"><img src="images/gallery/b_ceilingfan01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Barton Street" href="images/gallery/a_102_bartonst01.jpg"><img src="images/gallery/b_bartonst01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="JFK Center and Watergate Complex" href="images/gallery/a_103_jfkcenterandwatergatecomplex01.jpg"><img src="images/gallery/b_jfkcenterandwatergatecomplex01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Iwo Jima Memorial" href="images/gallery/a_104_iwojimamemorial01.jpg"><img src="images/gallery/b_iwojimamemorial01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="St. Paul's Cathedral" href="images/gallery/a_105_stpaulscathedral01.jpg"><img src="images/gallery/b_stpaulscathedral01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="S2000" href="images/gallery/a_106_s2k01.jpg"><img src="images/gallery/b_s2k01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Clarendon Metro" href="images/gallery/a_107_clarendonmetro01.jpg"><img src="images/gallery/b_clarendonmetro01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Big Ben, Houses of Parliament and River Thames" href="images/gallery/a_108_bigben02.jpg"><img src="images/gallery/b_bigben02_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Little Sparrow" href="images/gallery/a_109_littlesparrow01.jpg"><img src="images/gallery/b_littlesparrow01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Kawasaki Rose" href="images/gallery/a_110_kawasakirose01.jpg"><img src="images/gallery/b_kawasakirose01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Audi R8" href="images/gallery/a_111_audir801.jpg"><img src="images/gallery/b_audir801_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Early Morning at the Mall" href="images/gallery/a_112_earlymorningatthemallbw.jpg"><img src="images/gallery/b_earlymorningatthemallbw_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Buster" href="images/gallery/a_113_busterApr08_01.jpg"><img src="images/gallery/b_busterApr08_01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="View of Barcelona From the Gondola" href="images/gallery/a_114_barcelona01.jpg"><img src="images/gallery/b_barcelona01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Across the Brooklyn Bridge" href="images/gallery/a_115_brooklynbridgehdr03.jpg"><img src="images/gallery/b_brooklynbridgehdr03_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Tower of London" href="images/gallery/a_116_toweroflondon01.jpg"><img src="images/gallery/b_toweroflondon01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Cherry Blossoms 2010" href="images/gallery/a_117_cherryblossoms2010_01.jpg"><img src="images/gallery/b_cherryblossoms2010_01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Cape Henlopen" href="images/gallery/a_118_capehenlopen01.jpg"><img src="images/gallery/b_capehenlopen01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Violet Tulip" href="images/gallery/a_119_violettulip01.jpg"><img src="images/gallery/b_violettulip01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Manhattan Skyline" href="images/gallery/a_120_manhattanskylinehdr01.jpg"><img src="images/gallery/b_manhattanskylinehdr01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Crystal City Water Park" href="images/gallery/a_121_crystalcitywaterpark01.jpg"><img src="images/gallery/b_crystalcitywaterpark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Filipino Heritage Night" href="images/gallery/a_122_filheritagenightphillies01.jpg"><img src="images/gallery/b_filheritagenightphillies01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Eternal Flame" href="images/gallery/a_123_eternalflame01.jpg"><img src="images/gallery/b_eternalflame01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Meridian Hill Park" href="images/gallery/a_124_meridianhillpark02.jpg"><img src="images/gallery/b_meridianhillpark02_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="View from Rockefeller (North Side)" href="images/gallery/a_125_viewfromrockefellernorth01.jpg"><img src="images/gallery/b_viewfromrockefellernorth01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Sparrows Taking A Dip" href="images/gallery/a_126_sparrowstakingadip01.jpg"><img src="images/gallery/b_sparrowstakingadip01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Roman Bath House" href="images/gallery/a_127_romanbath01.jpg"><img src="images/gallery/b_romanbath01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Washington Monument from Lincoln Memorial" href="images/gallery/a_128_washmonumentfromlincolnmem01.jpg"><img src="images/gallery/b_washmonumentfromlincolnmem01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="My Original iPhone" href="images/gallery/a_129_iphone1g01.jpg"><img src="images/gallery/b_iphone1g01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="4th of July Fireworks" href="images/gallery/a_130_04Jul10Fireworks01.jpg"><img src="images/gallery/b_04Jul10Fireworks01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Purple Flower" href="images/gallery/a_131_purpleflower01.jpg"><img src="images/gallery/b_purpleflower01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Bimmer Eyes" href="images/gallery/a_132_bmweyes01.jpg"><img src="images/gallery/b_bmweyes01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="After Snowmaggedon" href="images/gallery/a_133_nfairfaxdr06feb10.jpg"><img src="images/gallery/b_nfairfaxdr06feb10_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Plaza De Sant Jaume" href="images/gallery/a_134_plazadesantjaume01.jpg"><img src="images/gallery/b_plazadesantjaume01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Sunflower" href="images/gallery/a_135_sunflower01.jpg"><img src="images/gallery/b_sunflower01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Air Force Monument" href="images/gallery/a_136_airforcemonument01.jpg"><img src="images/gallery/b_airforcemonument01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Thomas Jefferson Statue" href="images/gallery/a_137_tjmonument01.jpg"><img src="images/gallery/b_tjmonument01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Nexus One" href="images/gallery/a_138_nexusone01.jpg"><img src="images/gallery/b_nexusone01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="George Henry Statue" href="images/gallery/a_139_georgehenrystatue01.jpg"><img src="images/gallery/b_georgehenrystatue01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Inside The MET" href="images/gallery/a_140_insidethemet01.jpg"><img src="images/gallery/b_insidethemet01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="To The Top Of The Rock" href="images/gallery/a_141_topoftherock01.jpg"><img src="images/gallery/b_topoftherock01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Joanne of Arc Statue" href="images/gallery/a_142_joanneofarc01.jpg"><img src="images/gallery/b_joanneofarc01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Elf Service" href="images/gallery/a_143_elfservice01.jpg"><img src="images/gallery/b_elfservice01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Nintendo Store" href="images/gallery/a_144_nintendostore01.jpg"><img src="images/gallery/b_nintendostore01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="NY City Hall" href="images/gallery/a_145_cityhall01.jpg"><img src="images/gallery/b_cityhall01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Arlington Memorial Bridge" href="images/gallery/a_146_arlingtonmemorialbridge01.jpg"><img src="images/gallery/b_arlingtonmemorialbridge01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="After The Late Show" href="images/gallery/a_147_lateshow01.jpg"><img src="images/gallery/b_lateshow01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Crossing The Delaware" href="images/gallery/a_148_crossingthedelaware01.jpg"><img src="images/gallery/b_crossingthedelaware01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Rally For Sanity" href="images/gallery/a_149_rallyforsanity01.jpg"><img src="images/gallery/b_rallyforsanity01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Museo De Oro, Bogota Colombia" href="images/gallery/a_150_museodeoro01.jpg"><img src="images/gallery/b_museodeoro01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="NY Central Park" href="images/gallery/a_151_centralparkny01.jpg"><img src="images/gallery/b_centralparkny01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Catedral Primada, Bogota Colombia" href="images/gallery/a_152_catedralprimada01.jpg"><img src="images/gallery/b_catedralprimada01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="A Street In San Francisco" href="images/gallery/a_153_streetinsf01.jpg"><img src="images/gallery/b_streetinsf01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Museo Botero, Bogota Colombia" href="images/gallery/a_154_museobotero01.jpg"><img src="images/gallery/b_museobotero01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Across the Golden Gate Bridge" href="images/gallery/a_155_goldengate01.jpg"><img src="images/gallery/b_goldengate01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Old Town Alexandria" href="images/gallery/a_156_oldtownalexandria01.jpg"><img src="images/gallery/b_oldtownalexandria01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="San Francisco City Hall" href="images/gallery/a_157_sfpiazza01.jpg"><img src="images/gallery/b_sfpiazza01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Healy Hall" href="images/gallery/a_158_healyhall01.jpg"><img src="images/gallery/b_healyhall01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="A Street In Bogota" href="images/gallery/a_159_bogotastreet01.jpg"><img src="images/gallery/b_bogotastreet01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="San Francisco Maritime Park" href="images/gallery/a_160_sfmaritimepark01.jpg"><img src="images/gallery/b_sfmaritimepark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Universidad De La Salle, Bogota Colombia" href="images/gallery/a_161_universidaddelasalle01.jpg"><img src="images/gallery/b_universidaddelasalle01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Sushi" href="images/gallery/a_162_sushi01.jpg"><img src="images/gallery/b_sushi01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Lombarde Street" href="images/gallery/a_163_lombardestreet01.jpg"><img src="images/gallery/b_lombardestreet01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Orange Flower" href="images/gallery/a_164_orangeflower01.jpg"><img src="images/gallery/b_orangeflower01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Poker Chips" href="images/gallery/a_165_pokerchips01.jpg"><img src="images/gallery/b_pokerchips01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Infinity Statue" href="images/gallery/a_166_infinitystatue01.jpg"><img src="images/gallery/b_infinitystatue01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Parque De Los Periodistas" href="images/gallery/a_167_parquedelosperiodistas01.jpg"><img src="images/gallery/b_parquedelosperiodistas01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title"Spinning Parol" href="images/gallery/a_168_spinningparol01.jpg"><img src="images/gallery/b_spinningparol01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="The Shops At Columbus Circle" href="images/gallery/a_169_shopsatcolumbuscircle01.jpg"><img src="images/gallery/b_shopsatcolumbuscircle01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Girl And Fawn" href="images/gallery/a_170_girlandfawn01.jpg"><img src="images/gallery/b_girlandfawn01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Georgetown Canal" href="images/gallery/a_171_georgetowncanal01.jpg"><img src="images/gallery/b_georgetowncanal01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Rosslyn Gateway Park" href="images/gallery/a_172_rosslyngatewaypark01.jpg"><img src="images/gallery/b_rosslyngatewaypark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="A Street In Rehoboth Beach" href="images/gallery/a_173_streetinrehoboth01.jpg"><img src="images/gallery/b_streetinrehoboth01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Juarez Mexico Statue" href="images/gallery/a_174_juarezmexico01.jpg"><img src="images/gallery/b_juarezmexico01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Sony Nex-301" href="images/gallery/a_175_nex301.jpg"><img src="images/gallery/b_nex301_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Dragonfly" href="images/gallery/a_176_dragonfly01.jpg"><img src="images/gallery/b_dragonfly01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Freedom Bell" href="images/gallery/a_177_freedombell01.jpg"><img src="images/gallery/b_freedombell01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Rawlins Park" href="images/gallery/a_178_rawlinspark01.jpg"><img src="images/gallery/b_rawlinspark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="NOVA Woodbridge Lake" href="images/gallery/a_179_novawoodbridgelake01.jpg"><img src="images/gallery/b_novawoodbridgelake01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Powell & Market Cable Car" href="images/gallery/a_180_powellandmarketcablecar01.jpg"><img src="images/gallery/b_powellandmarketcablecar01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Elgin Marbles" href="images/gallery/a_181_elginmarbles01.jpg"><img src="images/gallery/b_elginmarbles01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="A Canal In Bogota" href="images/gallery/a_182_acanalinbogota01.jpg"><img src="images/gallery/b_acanalinbogota01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title"General Jose De San Martin Statue" href="images/gallery/a_183_genjosedesanmartin01.jpg"><img src="images/gallery/b_genjosedesanmartin01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Simon Bolivar Statue" href="images/gallery/a_184_simonbolivar01.jpg"><img src="images/gallery/b_simonbolivar01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Barcroft Park" href="images/gallery/a_185_barcroftpark01.jpg"><img src="images/gallery/b_barcroftpark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Hello Kitty Car" href="images/gallery/a_186_hellokittycar01.jpg"><img src="images/gallery/b_hellokittycar01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Inside Union Station, DC" href="images/gallery/a_187_insideunionstationdc01.jpg"><img src="images/gallery/b_insideunionstationdc01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Francis Scott Key Park" href="images/gallery/a_188_francisscottkeypark01.jpg"><img src="images/gallery/b_francisscottkeypark01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Japan Town, San Francisco" href="images/gallery/a_189_japantown01.jpg"><img src="images/gallery/b_japantown01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Iglesia De San Francisco, Bogota Colombia" href="images/gallery/a_190_iglesiadesanfrancisco01.jpg"><img src="images/gallery/b_iglesiadesanfrancisco01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Sheridan Circle" href="images/gallery/a_191_sheridancircle01.jpg"><img src="images/gallery/b_sheridancircle01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="National Cathedral" href="images/gallery/a_192_nationalcathedral01.jpg"><img src="images/gallery/b_nationalcathedral01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Old Post Office Building" href="images/gallery/a_193_oldpostofficebuilding01.jpg"><img src="images/gallery/b_oldpostofficebuilding01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Michael Jordan Statue" href="images/gallery/a_194_michaeljordanstatue01.jpg"><img src="images/gallery/b_michaeljordanstatue01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="General Pulaski Statue" href="images/gallery/a_195_genpulaskistatue01.jpg"><img src="images/gallery/b_genpulaskistatue01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Navy-Marine Memorial" href="images/gallery/a_196_navymarinememorial01.jpg"><img src="images/gallery/b_navymarinememorial01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Mini Cooper Lights" href="images/gallery/a_197_minicooperlights01.jpg"><img src="images/gallery/b_minicooperlights01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Field of Flowers" href="images/gallery/a_198_fieldofflowers01.jpg"><img src="images/gallery/b_fieldofflowers01_sm.jpg" alt="field of flowers" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Airplane" href="images/gallery/a_199_airplane01.jpg"><img src="images/gallery/b_airplane01_sm.jpg" width="72" height="48" /></a></li>
+            <li><a class="fancybox" rel="gallery" title="Over Montgomery County" href="images/gallery/a_200_montgomerycounty01.jpg"><img src="images/gallery/b_montgomerycounty01_sm.jpg" width="72" height="48" /></a></li>
+	</ul>
+  </div>
+  <!-- end .container -->
+  </div>
+  <div id="footer">copyright © 2013 erik lorenzana</div>
+</body>
+</html>
