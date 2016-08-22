@@ -56,11 +56,11 @@ body {
 }
 
 .icon_date {
-	color: #ddd;
+	color: #fff;
 	display: inline-block;
 	float: right;
-	font-family: Tahoma, sans-serif;
-	font-size: 11px;
+	/*font-family: Tahoma, sans-serif;*/
+	font-size: 12px;
 	margin: 0 auto;
 	padding: 20px;
 	position: absolute;
@@ -68,9 +68,9 @@ body {
 }
 
 .icon_title {
-	bottom: 30px;
-	color: #666;
-	font-size: 14px;
+	bottom: 35px;
+	color: #fff;
+	font-size: 18px;
 	padding: 0;
 	position: absolute;
 	text-align: center;
