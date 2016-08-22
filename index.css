@@ -87,3 +87,15 @@ body {
 	text-align: center;
 	width: 512px;
 }
+
+@media only screen {
+	
+	body {
+		width: 100%;
+	}
+	
+	#wrapper {
+		width: 100%;
+	}
+	
+}
