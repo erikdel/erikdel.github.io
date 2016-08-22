@@ -59,8 +59,7 @@ body {
 	color: #fff;
 	display: inline-block;
 	float: right;
-	/*font-family: Tahoma, sans-serif;*/
-  font-size: 12px;
+	font-size: 12px;
 	margin: 0 auto;
 	padding: 20px;
 	position: absolute;
@@ -86,4 +85,14 @@ body {
 	padding: 20px;
 	text-align: center;
 	width: 512px;
+}
+
+@media only screen and (max-width: 768px) {
+	
+	#wrapper {
+		background: #fff;
+		margin: 0 auto;
+		width: 100%; 
+	}
+	
 }
