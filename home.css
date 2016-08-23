@@ -16,11 +16,11 @@ body {
 }
 
 .icon {
-	background: #f2f2f2;
+	/*background: #f2f2f2;
 	border-bottom: 20px solid #fff;
 	border-left: 20px solid #fff;
 	border-right: 20px solid #fff;
-	text-align: center;
+	text-align: center;*/
 }
 
 @media only screen and (max-device-width: 640px) {
@@ -28,7 +28,8 @@ body {
 	#container {
 		background: #fff;
 		margin: 0 auto;
-		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
 	}
 	
 	#wrapper {
@@ -38,14 +39,12 @@ body {
 	}
 	
 	.icon {
-		background-color: #fff;
-		display: block;
-		float: left;
-		margin: 0;
-		padding: 0 20px 20px 20px;
-		position: relative;
-		width: 100%;
-		}
+		/*background: #f2f2f2;
+		border-bottom: 20px solid #fff;
+		border-left: 20px solid #fff;
+		border-right: 20px solid #fff;
+		text-align: center;*/
+	}
 	
 }
 
