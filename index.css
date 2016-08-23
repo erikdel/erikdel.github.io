@@ -6,6 +6,10 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+img {
+	border-radius: 6px;	
+}
+
 #wrapper {
 	background: #fff;
 	margin: 0 auto;
@@ -94,5 +98,15 @@ body {
 		margin: 0 auto;
 		width: 100%; 
 	}
+	
+	.icon {
+		background-color: #fff;
+		display: block;
+		float: left;
+		margin: 0;
+		padding: 0 20px 20px 20px;
+		position: relative;
+		width: 100%;
+		}
 	
 }
