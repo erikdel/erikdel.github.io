@@ -11,9 +11,8 @@ body {
 #container {
 	background: #fff;
 	margin: 0 auto;
-	/*max-width: 552px;
-	min-width: 552px;*/
-	width: 100%;
+	max-width: 552px;
+	min-width: 552px;
 }
 
 .icon {
@@ -22,5 +21,25 @@ body {
 	border-left: 20px solid #fff;
 	border-right: 20px solid #fff;
 	text-align: center;
+}
+
+@media only screen and (max-width: 160px) {
+	
+	#wrapper {
+		background: #fff;
+		margin: 0 auto;
+		width: 100%; 
+	}
+	
+	.icon {
+		background-color: #fff;
+		display: block;
+		float: left;
+		margin: 0;
+		padding: 0 20px 20px 20px;
+		position: relative;
+		width: 100%;
+		}
+	
 }
 
