@@ -23,7 +23,7 @@ body {
 	text-align: center;
 }
 
-@media only screen and (max-device-width: 750px) {
+@media only screen and (max-device-width: 375px) {
 	
 	#container {
 		background: #fff;
