@@ -151,6 +151,7 @@ h1 {
   }
   
   #content ol {
+	  font-size: 2.5em;
 	  line-height: 3em;
 	  list-style: decimal;
 	  list-style-position: inside;
@@ -173,7 +174,7 @@ h1 {
   
   .story_link {
 	  color: #999;
-	  font-size: 1.6em;
+	  font-size: 1em;
   }
   
   .story_user {
