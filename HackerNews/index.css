@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 body {
+	background: #f7f7f7;
 	font-family: 'Lato', sans-serif;
 }
 
@@ -10,7 +11,7 @@ h1 {
 }
 
 #wrapper {
-	background: #eff3f3;
+	background: #f1f1f1;
 	margin: 0 auto;
 	min-width: 480px;
 	max-width: 80%;
@@ -23,7 +24,8 @@ h1 {
 }
 
 #header_logo {
-	border-right: white 1px solid;
+	border: 5px solid #fefefe;
+	box-sizing: border-box;
 	float: left;
 	height: 4.5em;
 	width: 4.5em;
@@ -95,3 +97,13 @@ h1 {
 	
 }
 
+@media only screen and (max-device-width: 750px) {
+	
+	#wrapper {
+		background: #f1f1f1;
+		margin: 0 auto;
+		min-width: 480px;
+		max-width: 100%;
+		}
+		
+}
