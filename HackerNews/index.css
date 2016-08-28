@@ -160,6 +160,7 @@ h1 {
   
   #content li {
 	  /*background: green;*/
+	  font-size: 2em;
 	  padding: 5px;
   }
   
