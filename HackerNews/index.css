@@ -118,11 +118,8 @@ h1 {
 	  height: 9em;
   }
   
-  #header p {
-	  font-size: 2em;
-  
   #header_logo {
-	  border: 5px solid #fefefe;
+	  border: 10px solid #fefefe;
 	  box-sizing: border-box;
 	  float: left;
 	  height: 9em;
@@ -135,7 +132,8 @@ h1 {
   }
   
   #header_info p {
-	  padding: 0 0 0 5px;
+	  font-size: 2.5em;
+	  padding: 0 0 0 10px;
   }
   
   #header_user {
