@@ -147,6 +147,7 @@ h1 {
   }
   
   #content {
+	  font-size: 1em;
 	  clear: both;
 	  display: block;
   }
@@ -170,7 +171,7 @@ h1 {
   }
   
   .story_title {
-	  font-size: 2em;
+	  font-size: 20px;
 	  padding: 10px;
   }
   
