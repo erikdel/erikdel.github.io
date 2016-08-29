@@ -70,8 +70,20 @@ h1 {
 	/*background: #eaeaea;*/
 }
 
+#content p {
+	padding: 15px 0 0 0;
+}
+
+.story_number {
+	color: #999;
+	font-size: 0.8em;
+	padding: 0 5px 0 5px;
+	text-align: right;
+	width: 3em;
+}
+
 .story_title {
-	font-size: 1em;
+	font-size: 1.05em;
 	padding: 5px;
 }
 
@@ -91,7 +103,7 @@ h1 {
 .story_options {
 	color: #999;
 	font-size: 0.8em;
-	padding: 0 0 0 20px;
+	padding: 0 0 0 18px;
 }
 
 #footer {
@@ -171,7 +183,7 @@ h1 {
   }
   
   .story_title {
-	  font-size: 20px;
+	  font-size: 3em;
 	  padding: 10px;
   }
   
