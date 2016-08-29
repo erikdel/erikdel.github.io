@@ -70,7 +70,8 @@ h1 {
 	/*background: #eaeaea;*/
 }
 
-.story {
+.story_title {
+	font-size: 1em;
 	padding: 5px;
 }
 
@@ -169,7 +170,7 @@ h1 {
   }
   
   .story_title {
-	  font-size: 1.5em;
+	  font-size: 2em;
 	  padding: 10px;
   }
   
