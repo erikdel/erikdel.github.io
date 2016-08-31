@@ -121,12 +121,19 @@ h1 {
  color: #fff;
  height: 9em;
 }
- #header_logo {
- border: 10px solid #fefefe;
- box-sizing: border-box;
- float: left;
- height: 9em;
- width: 9em;
+#header_logo_box {
+	border: 5px solid #fd620e;
+	box-sizing: border-box;
+	float: left;
+	height: 4.5em;
+	width: 4.5em
+}
+#header_logo {
+	border: 3px solid #fefefe;
+	box-sizing: border-box;
+	float: left;
+	height: 4em;
+	width: 4em;
 }
  #header_info {
  float: left;
@@ -182,7 +189,7 @@ h1 {
 }
  .story_link {
  color: #999;
- font-size: 0.6em;
+ font-size: 0.7em;
 }
  .story_user {
 }
@@ -190,7 +197,7 @@ h1 {
 }
  .story_options {
  color: #999;
- font-size: 0.6em;
+ font-size: 0.7em;
  padding: 0 0 0 20px;
 }
  #footer {
