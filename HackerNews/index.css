@@ -172,14 +172,14 @@ h1 {
 /*background: #eaeaea;*/
   }
  .story_number {
- color: #999;
+ color: #888;
  font-size: 0.8em;
  padding: 0 5px 0 5px;
  text-align: right;
  width: 3em;
 }
  .story_upvote {
- color: #999;
+ color: #888;
  font-size: 0.9em;
  padding: 0 5px 0 5px;
 }
@@ -188,7 +188,7 @@ h1 {
  padding: 10px;
 }
  .story_link {
- color: #999;
+ color: #888;
  font-size: 0.7em;
 }
  .story_user {
@@ -196,7 +196,7 @@ h1 {
  .story_time {
 }
  .story_options {
- color: #999;
+ color: #888;
  font-size: 0.7em;
  padding: 0 0 0 20px;
 }
