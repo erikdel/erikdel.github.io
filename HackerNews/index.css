@@ -20,15 +20,23 @@ h1 {
 #header {
 	background: #fd620e;
 	color: #fff;
-	height: 4.5em;
+	height: 4.7em;
+	margin: 0 0 10px 0;
 }
 
-#header_logo {
-	border: 5px solid #fefefe;
+#header_logo_box {
+	border: 5px solid #fd620e;
 	box-sizing: border-box;
 	float: left;
 	height: 4.5em;
-	width: 4.5em;
+	width: 4.5em
+}
+#header_logo {
+	border: 3px solid #fefefe;
+	box-sizing: border-box;
+	float: left;
+	height: 4em;
+	width: 4em;
 }
 
 #header_info {
@@ -55,6 +63,7 @@ h1 {
 }
 
 #content ol {
+	color: #999;
 	font-size: 0.8em;
 	line-height: 1.5em;
 	list-style: decimal;
@@ -85,7 +94,14 @@ h1 {
 	width: 3em;
 }
 
+.story_upvote {
+	color: #999;
+	font-size: 0.9em;
+	padding: 0 5px 0 5px;
+}
+
 .story_title {
+	color: #222;
 	font-size: 1.2em;
 	padding: 5px;
 }
@@ -106,7 +122,7 @@ h1 {
 .story_options {
 	color: #999;
 	font-size: 0.8em;
-	padding: 0 0 0 18px;
+	padding: 0 0 0 25px;
 }
 
 #footer {
@@ -168,7 +184,7 @@ h1 {
   }
   
   #content ol {
-	  font-size: 1.5em;
+	  /*font-size: 0.8em;*/
 	  line-height: 3em;
 	  list-style: decimal;
 	  list-style-position: inside;
@@ -184,6 +200,20 @@ h1 {
   #content li:nth-child(even) {
 	  /*background: #eaeaea;*/
   }
+  
+  .story_number {
+		color: #999;
+		font-size: 0.8em;
+		padding: 0 5px 0 5px;
+		text-align: right;
+		width: 3em;
+	}
+
+	.story_upvote {
+		color: #999;
+		font-size: 0.9em;
+		padding: 0 5px 0 5px;
+	}
   
   .story_title {
 	  font-size: 1.3em;
