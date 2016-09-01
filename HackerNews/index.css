@@ -59,6 +59,19 @@ h1 {
 	list-style: decimal;
 	list-style-position: outside;
 	padding: 0 0 0 30px;
+	counter-reset: foo;
+	display: table;
+}
+
+#content ol > li {
+	counter-increment: foo;
+	display: table-row;
+}
+
+#content ol > li::before {
+	content: counter(foo) ".";
+	display: table-cell;
+	text-align: right;
 }
 #content li {
 	/*background: green;*/
