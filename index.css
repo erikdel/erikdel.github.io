@@ -93,6 +93,13 @@ img {
 
 @media only screen and (max-device-width: 640px) {
 	
+	#sub_header {
+		border-bottom: 1px solid #ededed;
+		margin: 0 auto;
+		padding: 10px;
+		width: 100%;
+	}
+	
 	#content {
 		width: 100%;
 	}
