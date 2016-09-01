@@ -53,10 +53,11 @@ img {
 	display: block;
 	float: left;
 	margin: 0;
-	max-width: 512px;
-	min-width: 512px;
+	/*max-width: 512px;
+	min-width: 512px;*/
 	padding: 0 20px 20px 20px;
 	position: relative;
+	text-align: center;
 }
 
 .icon_date {
