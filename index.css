@@ -103,6 +103,7 @@ img {
 	
 	#content {
 		/*width: 100%;*/
+		margin: 0 auto;
 	}
 	
 	#wrapper {
@@ -119,7 +120,7 @@ img {
 		padding: 0 20px 20px 20px;
 		position: relative;
 		width: 100%;*/
-		background: #333;
+		background: #fff;
 		border-bottom: 20px solid #fff;
 		border-left: 20px solid #fff;
 		border-right: 20px solid #fff;
