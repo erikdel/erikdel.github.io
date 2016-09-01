@@ -94,6 +94,7 @@ img {
 @media only screen and (max-device-width: 640px) {
 	
 	#content {
+		background: #333;
 		width: 100%;
 	}
 	
