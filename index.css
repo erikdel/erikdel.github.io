@@ -94,7 +94,6 @@ img {
 @media only screen and (max-device-width: 640px) {
 	
 	#content {
-		background: #333;
 		width: 100%;
 	}
 	
@@ -119,6 +118,7 @@ img {
 		border-left: 20px solid #fff;
 		border-right: 20px solid #fff;
 		text-align: center;
+		width: 100%;
 		}
 		
 	.icon_date {
