@@ -62,16 +62,14 @@ h1 {
 	counter-reset: foo;
 	display: table;
 }
-
 #content ol > li {
 	counter-increment: foo;
 	display: table-row;
 }
-
-#content ol > li::before {
-	content: counter(foo) ".";
-	display: table-cell;
-	text-align: right;
+ #content ol > li::before {
+ content: counter(foo) ".";
+ display: table-cell;
+ text-align: right;
 }
 #content li {
 	/*background: green;*/
@@ -135,18 +133,18 @@ h1 {
  height: 9em;
 }
 #header_logo_box {
-	border: 5px solid #fd620e;
-	box-sizing: border-box;
-	float: left;
-	height: 4.5em;
-	width: 4.5em
+ border: 5px solid #fd620e;
+ box-sizing: border-box;
+ float: left;
+ height: 4.5em;
+ width: 4.5em
 }
 #header_logo {
-	border: 3px solid #fefefe;
-	box-sizing: border-box;
-	float: left;
-	height: 4em;
-	width: 4em;
+ border: 3px solid #fefefe;
+ box-sizing: border-box;
+ float: left;
+ height: 4em;
+ width: 4em;
 }
  #header_info {
  float: left;
@@ -170,15 +168,24 @@ h1 {
  display: block;
 }
  #content ol {
-	  /*font-size: 0.8em;*/
-	  line-height: 3em;
+line-height: 3em;
  list-style: decimal;
  list-style-position: inside;
  padding: 0;
+ counter-reset: foo;
+ display: table;
+}
+ #content ol > li {
+ counter-increment: foo;
+ display: table-row;
+}
+ #content ol > li::before {
+ content: counter(foo) ".";
+ display: table-cell;
+ text-align: right;
 }
  #content li {
-	  /*background: green;*/
-	  font-size: 2em;
+ font-size: 2em;
  padding: 5px;
 }
  #content li:nth-child(even) {
