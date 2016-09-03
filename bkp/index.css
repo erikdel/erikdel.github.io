@@ -1,22 +1,20 @@
 @charset "UTF-8";
 
 body {
-	font-family: 'Lato', Helvetica, sans-serif;
-	background: #e4e4e4;
-	margin: 0;
-	padding: 0;
-	color: #000;
+	background: #ddd;
+	color: #666;
+	font-family: 'Lato', sans-serif;
 }
 
 img {
 	border-radius: 6px;	
 }
 
-#container {
+#wrapper {
 	background: #fff;
 	margin: 0 auto;
-	max-width: 552px;
 	min-width: 552px;
+	max-width: 552px;
 }
 
 #header {
@@ -40,6 +38,10 @@ img {
 	width: 96%;
 }
 
+#content {
+	width: 100%;
+}
+
 .spacer {
 	clear: both;
 	display: block;
@@ -47,11 +49,13 @@ img {
 }
 
 .icon {
-	background: #f2f2f2;
-	border-bottom: 20px solid #fff;
-	border-left: 20px solid #fff;
-	border-right: 20px solid #fff;
+	background-color: #fff;
 	display: block;
+	float: left;
+	margin: 0;
+	/*max-width: 512px;
+	min-width: 512px;*/
+	padding: 0 20px 20px 20px;
 	position: relative;
 	text-align: center;
 }
@@ -64,7 +68,7 @@ img {
 	margin: 0 auto;
 	padding: 20px;
 	position: absolute;
-	right: 0;
+	right: 20px;
 }
 
 .icon_title {
@@ -90,26 +94,70 @@ img {
 
 @media only screen and (max-device-width: 640px) {
 	
-	#container {
-		background: #fff;
+	#sub_header {
+		border-bottom: 1px solid #ededed;
 		margin: 0 auto;
-		max-width: 100%;
-		min-width: 100%;
+		padding: 10px;
+		width: 100%;
+	}
+	
+	#content {
+		/*width: 100%;*/
+		margin: 0 auto;
 	}
 	
 	#wrapper {
 		background: #fff;
-		margin: 0 auto;
+		margin: 0 auto; 
 		width: 100%;
 	}
 	
 	.icon {
-		background: #f2f2f2;
+		/*background-color: #fff;
+		display: block;
+		float: left;
+		margin: 0;
+		padding: 0 20px 20px 20px;
+		position: relative;
+		width: 100%;*/
+		background: #fff;
 		border-bottom: 20px solid #fff;
 		border-left: 20px solid #fff;
 		border-right: 20px solid #fff;
 		text-align: center;
+		/*width: 100%;*/
+		}
+		
+	.icon_date {
+		color: #fff;
+		display: inline-block;
+		float: right;
+		font-size: 12px;
+		margin: 0 auto;
+		padding: 20px;
+		position: absolute;
+		right: 20px;
+	}
+
+	.icon_title {
+		bottom: 35px;
+		color: #fff;
+		font-size: 18px;
+		padding: 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+
+	#footer {
+		border-top: 1px solid #ededed;
+		clear: both;
+		display: block;
+		font-size: 10px;
+		margin: 0 auto;
+		padding: 20px;
+		text-align: center;
+		width: 100%;
 	}
 	
 }
-
