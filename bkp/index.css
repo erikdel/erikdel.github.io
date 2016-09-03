@@ -26,7 +26,7 @@ img {
 	border-bottom: 1px solid #ededed;
 	margin: 0 auto;
 	padding: 10px;
-	width: 532px;
+	width: 100%;
 }
 
 #navigation {
@@ -78,7 +78,7 @@ img {
 	padding: 0;
 	position: absolute;
 	text-align: center;
-	width: 512px;
+	width: 100%;
 }
 
 #footer {
@@ -89,7 +89,7 @@ img {
 	margin: 0 auto;
 	padding: 20px;
 	text-align: center;
-	width: 512px;
+	width: 100%;
 }
 
 @media only screen and (max-device-width: 640px) {
