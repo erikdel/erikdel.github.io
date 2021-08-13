@@ -1,107 +1,228 @@
+@charset "UTF-8";
+/* CSS Document */
+
 body {
+	color: #333;
+	font-family: Arial, sans-serif;
+}
 
-	background-color: #fcfcfc;
-	color: #444;
-	font-family: 'Open Sans', Arial, sans-serif;
-	padding: 20px;
-	width: 640px;
+h1 {
+	color: #555;
+	font-size: 2.5em;
+	font-weight: lighter;
+	margin: 15px;
+}
 
+h3 {
+	color: #555;
+	font-size: 1.7em;
+	font-weight: lighter;
+	margin: 0 15px 0 15px;
+}
+
+h4 {
+	color: #555;
+	font-size: 1.4em;
+	font-style: bold;
+	font-weight: lighter;
+	margin: 0 15px 0 15px;
+	padding: 15px 0 0 0;
+}
+
+h5 {
+	color: #555;
+	font-size: 1.2em;
+	font-weight: lighter;
+	margin: 15px 0 15px 15px;
+	padding: 0;
+}
+
+h6 {
+	color: #555;
+	font-size: 1.1em;
+	font-weight: lighter;
+	padding: 0 0 15px 15px;
+}
+
+p {
+	color: #555;
+	font-size: 1em;
+	font-weight: lighter;
+	line-height: 1.7em;
+	padding: 15px 0 0 15px;
+}
+
+.container {
+	border: 3px solid green;
+	margin: 0 auto;
+	width: 50%;
+}
+
+.separator {
+	max-width: 975px;
+	padding: 15px 0 15px 0;
+}
+
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  /*background-color: #66b2b2;*/
+	background-image: url("images/navbar-background.png");
+	background-repeat: repeat-y;
+  font-family: Arial;
+	max-width: 975px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: #66b2b2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #333;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+	text-transform: capitalize;
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #b2d8d8;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fdfdfd;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+	text-transform: capitalize;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*
+ul {
+	background-color: #f1f1f1;
+	list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  width: 240px;
 }
 
 li {
+	font-style: bold;
+}
 
-	padding: 5px 0 5px 0;
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+*/
+
+.header {
+	margin: 10px;
+}
+
+.header h1 {
+	font-size: 48px;
+	font-weight: bold;
+	padding: 2px 10px 2px 10px;
+}
+
+.header img {
+	float: left;
+	padding: 0 10px 0 0;
+}
+
+.cell {
+	background-color: #FDF9F9;
+	clear: right;
+	float: left;
+	margin: 3px;
+	padding: 10px;
+	width: 300px;
+}
+
+.job_description {
+	color: #555;
+	line-height: 1.7em;
+	margin: 0 0 15px 25px;
+}
+
+/*
+.navigation {
 
 }
 
-#header {
-
-	color: #2e538a;
-	font-size: 3.5em;
-
-}
-
-#sub_header {
-
-	border: 1px solid #dfdfdf;
-	border-top: 0px;
-	border-left: 0px;
-	border-right: 0px;
-	font-size: 1.2em;
-	padding: 20px 0 20px 10px;
-
-}
-
-#navigation {
-
-	font-size: 0.8em;
-	padding: 20px 0 0 0;
-	text-align: center;
-
-}
-
-#content {
-
-	padding: 0;
-
-}
-
-#content_caption {
-
-	color: green;
-	font-size: 0.8em;
-	font-style: italic;
-	padding: 20px 0 10px 0;
+.navigation h3 {
+	font-weight: bold;
+	padding: 20px 0 0 10px;
 	text-transform: uppercase;
-
 }
 
-#content_date {
-
-	color: #ffa07a;
-	font-size: 0.8em;
-	padding: 0px 0 15px 0;
-
+.navigation h4 {
+	font-size: 1.0em;
+	font-weight: bold;
+	padding: 15px 0 0 10px;
+	text-transform: capitalize;
 }
 
-#content_tags {
-
-	font-size: 0.7em;
-	padding: 0;
-	text-transform: uppercase;
-
+.navigation h5 {
+	font-size: 0.90em;
+	padding: 15px 0 0 15px;
+	text-transform: capitalize;
 }
 
-#content_title {
-
-	font-size: 1.8em;
-	padding: 0 0 10px 0;
-
+.navigation h6 {
+	font-size: 0.80em;
+	font-weight: lighter;
+	padding: 15px 0 0 20px;
+	text-transform: capitalize;
 }
+*/
 
-#content_text {
-
-	color: #333;
-	font-size: 1em;
-	padding: 15px 0 15px 0;
-
-}
-
-#footer {
-
-	border: 1px solid #dfdfdf;
-	border-bottom: 0px;
-	border-left: 0px;
-	border-right: 0px;
-	font-size: 0.8em;
-	margin: 20px 0 0 0;
-	padding: 20px 0 0 0;
-	text-align: center;
-
-}
-
-#spacer {
-
-	padding: 10px 0 0 0;
-
+.navigation p {
+	padding: 10px 0 0 30px;
 }
