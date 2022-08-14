@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	color: #333;
+	font-family: Arial, sans-serif;
+}
+
+h4 {
+	font-size: 1.1em;
+	font-weight: bold;
+	padding: 5px 0 5px 0;
+}
+
+img {
+
+}
+
+
+ul, li {
+	margin: 5px;
+	padding: 5px 5px 5px 30px;
+}
+
+ul li {
+	list-style-type: circle;
+}
