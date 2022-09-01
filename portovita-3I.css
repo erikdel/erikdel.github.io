@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	color: #333;
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+	padding: 5px;
+}
+
+h3 {
+	font-size: 1.5em;
+	padding: 5px;
+}
+
+h6 {
+	font-size: 0.9em;
+	padding: 3px;
+}
+
+li {
+	padding: 25px 0 10px 0;
+}
+
+.container_pic {
+	margin: 10px;
+}
+
+.container_pic p {
+	margin: 0 0 5px 0;
+}
